@@ -6,8 +6,8 @@ with open ('Extinct_languages.tsv', 'r', encoding='utf-8') as f:
     #задание2
     summ = 0
     for line in f:
-        name, num, definit = line.split('/t')
-        if definit == 'Critically endangered':
+        name, num, stat = line.split('\t')
+        if stat == 'Critically endangered':
             summ += summ
     print('число языков со статусом ', summ)
     #задание3
@@ -17,10 +17,10 @@ with open ('Extinct_languages.tsv', 'r', encoding='utf-8') as f:
     while lang != '':
         lang = input('введите название языка ')
         l_list.append(lang)
-    name = line.split(' ')
-    for lang in l_list:
-        for name in line:
-            if lang == name:
+    name = line.split('\t')
+    for name in line:
+        for lang in l_list:
+            if name == lang:
                 print(line)
             else:
                 print('название не встретилось в списке')
